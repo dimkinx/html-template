@@ -1,0 +1,9 @@
+{
+  "name": "html-template",
+  "version": "1.0.0",
+  "description": "Template to automate routine tasks in web development",
+  "scripts": {},
+  "keywords": ["html", "css", "js", "gulp", "stylelint", "eslint"],
+  "author": "Dmitry Ostroukhov",
+  "license": "WTFPD"
+}
