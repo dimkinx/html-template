@@ -1,24 +1,13 @@
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+*
 
-# testing
-/coverage
+!/src/
+!/src/**
 
-# production
-/build
+!/gulp/
+!/gulp/**
+!/gulpfile.js
 
-# misc
-__MACOSX
-Thumbs.db
-.DS_Store
-.env
-*.log*
+!/.stylelintrc.yml
+!/.eslintrc.yml
 
-npm-debug.*
-
-# editors
-.idea
-*.sublime*
-.vscode
+!/*.md
