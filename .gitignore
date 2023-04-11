@@ -5,9 +5,10 @@
 
 !/gulp/
 !/gulp/**
-!/gulpfile.js
+!/gulpfile.*
 
-!/.stylelintrc.yml
-!/.eslintrc.yml
+!/*stylelint*
+!/*eslint*
+!/*prettier*
 
 !/*.md
