@@ -79,10 +79,6 @@
   &--fit-content {
     .modal__content {
       width: auto;
-
-      @include vp-767 {
-        width: 100%;
-      }
     }
   }
 
