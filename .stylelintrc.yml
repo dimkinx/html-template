@@ -11,7 +11,7 @@ rules:
   declaration-no-important: true
 
   # Expected class pattern to be BEM style
-  selector-class-pattern: "^([a-z][a-z0-9]*)(-[a-z0-9]+)*((__([a-z][a-z0-9]*)(-[a-z0-9]+)*)?(--([a-z][a-z0-9]*)(-[a-z0-9]+)*)?)$"
+  selector-class-pattern: ^([a-z][a-z0-9]*)(-[a-z0-9]+)*((__([a-z][a-z0-9]*)(-[a-z0-9]+)*)?(--([a-z][a-z0-9]*)(-[a-z0-9]+)*)?)$
 
   # The following prefix rules are enabled since we use autoprefixer
   at-rule-no-vendor-prefix: true
@@ -19,14 +19,17 @@ rules:
   value-no-vendor-prefix: true
   selector-no-vendor-prefix:
     - true
-    - ignoreSelectors: ["/-moz-.*/"]
+    - ignoreSelectors: [/-moz-.*/]
 
   # Usually if you're nesting past 3 levels deep there's a problem
   max-nesting-depth:
     - 2
-    - ignore: "blockless-at-rules"
+    - ignore: blockless-at-rules
     - ignoreAtRules:
         - media
+
+  # Specify percentage or number notation for alpha-values
+  alpha-value-notation: number
 
   # Some not depricated rules from https://github.com/htmlacademy/stylelint-config-htmlacademy
   annotation-no-unknown: true
