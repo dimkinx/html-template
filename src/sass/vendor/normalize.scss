@@ -51,9 +51,9 @@ h1 {
 */
 
 hr {
+  overflow: visible; /* 2 */
   box-sizing: content-box; /* 1 */
   height: 0; /* 1 */
-  overflow: visible; /* 2 */
 }
 
 /**
@@ -62,8 +62,8 @@ hr {
 */
 
 pre {
-  font-size: 1em; /* 2 */
   font-family: monospace; /* 1 */
+  font-size: 1em; /* 2 */
 }
 
 /* Text-level semantics
@@ -83,8 +83,8 @@ a {
 */
 
 abbr[title] {
-  border-bottom: none; /* 1 */ /* 2 */
   text-decoration: underline dotted; /* 2 */
+  border-bottom: none; /* 1 */ /* 2 */
 }
 
 /**
@@ -104,8 +104,8 @@ strong {
 code,
 kbd,
 samp {
-  font-size: 1em; /* 2 */
   font-family: monospace; /* 1 */
+  font-size: 1em; /* 2 */
 }
 
 /**
@@ -124,8 +124,8 @@ small {
 sub,
 sup {
   position: relative;
-  line-height: 0;
   font-size: 75%;
+  line-height: 0;
   vertical-align: baseline;
 }
 
@@ -162,9 +162,9 @@ optgroup,
 select,
 textarea {
   margin: 0; /* 2 */
-  line-height: 1.15; /* 1 */
-  font-size: 100%; /* 1 */
   font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
 }
 
 /**
@@ -240,9 +240,11 @@ fieldset {
 
 legend {
   display: table; /* 1 */
-  padding: 0; /* 3 */
+
   box-sizing: border-box; /* 1 */
   max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+
   color: inherit; /* 2 */
   white-space: normal; /* 1 */
 }
@@ -270,8 +272,8 @@ textarea {
 
 [type="checkbox"],
 [type="radio"] {
-  padding: 0; /* 2 */
   box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
 }
 
 /**
@@ -289,8 +291,8 @@ textarea {
 */
 
 [type="search"] {
-  outline-offset: -2px; /* 2 */
   appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
 }
 
 /**
