@@ -1,7 +1,7 @@
-import {ScrollLock} from '../../utils/scroll-lock';
-import {FocusLock} from '../../utils/focus-lock';
+import ScrollLock from '../../utils/scroll-lock';
+import FocusLock from '../../utils/focus-lock';
 
-export class Modals {
+class Modals {
   constructor(settings = {}) {
     this._scrollLock = new ScrollLock();
     this._focusLock = new FocusLock();
@@ -40,36 +40,30 @@ export class Modals {
       return;
     }
 
-    this._preventDefault =
-      typeof this._settings[settingKey].preventDefault === 'boolean'
-        ? this._settings[settingKey].preventDefault
-        : this._settings[this._settingKey].preventDefault;
-    this._stopPlay =
-      typeof this._settings[settingKey].stopPlay === 'boolean'
-        ? this._settings[settingKey].stopPlay
-        : this._settings[this._settingKey].stopPlay;
-    this._lockFocus =
-      typeof this._settings[settingKey].lockFocus === 'boolean'
-        ? this._settings[settingKey].lockFocus
-        : this._settings[this._settingKey].lockFocus;
-    this._startFocus =
-      typeof this._settings[settingKey].startFocus === 'boolean'
-        ? this._settings[settingKey].startFocus
-        : this._settings[this._settingKey].startFocus;
-    this._focusBack =
-      typeof this._settings[settingKey].lockFocus === 'boolean'
-        ? this._settings[settingKey].focusBack
-        : this._settings[this._settingKey].focusBack;
-    this._eventTimeout =
-      typeof this._settings[settingKey].eventTimeout === 'number'
-        ? this._settings[settingKey].eventTimeout
-        : this._settings[this._settingKey].eventTimeout;
+    this._preventDefault = typeof this._settings[settingKey].preventDefault === 'boolean'
+      ? this._settings[settingKey].preventDefault
+      : this._settings[this._settingKey].preventDefault;
+    this._stopPlay = typeof this._settings[settingKey].stopPlay === 'boolean'
+      ? this._settings[settingKey].stopPlay
+      : this._settings[this._settingKey].stopPlay;
+    this._lockFocus = typeof this._settings[settingKey].lockFocus === 'boolean'
+      ? this._settings[settingKey].lockFocus
+      : this._settings[this._settingKey].lockFocus;
+    this._startFocus = typeof this._settings[settingKey].startFocus === 'boolean'
+      ? this._settings[settingKey].startFocus
+      : this._settings[this._settingKey].startFocus;
+    this._focusBack = typeof this._settings[settingKey].lockFocus === 'boolean'
+      ? this._settings[settingKey].focusBack
+      : this._settings[this._settingKey].focusBack;
+    this._eventTimeout = typeof this._settings[settingKey].eventTimeout === 'number'
+      ? this._settings[settingKey].eventTimeout
+      : this._settings[this._settingKey].eventTimeout;
     this._openCallback = this._settings[settingKey].openCallback || this._settings[this._settingKey].openCallback;
     this._closeCallback = this._settings[settingKey].closeCallback || this._settings[this._settingKey].closeCallback;
   }
 
   _documentClickHandler(evt) {
-    const target = evt.target;
+    const {target} = evt;
 
     if (!target.closest('[data-open-modal]')) {
       return;
@@ -96,7 +90,7 @@ export class Modals {
   }
 
   _modalClickHandler(evt) {
-    const target = evt.target;
+    const {target} = evt;
 
     if (!target.closest('[data-close-modal]')) {
       return;
@@ -119,7 +113,8 @@ export class Modals {
     if (this._stopPlay) {
       modal.querySelectorAll('video, audio').forEach((el) => el.pause());
       modal.querySelectorAll('[data-iframe]').forEach((el) => {
-        el.querySelector('iframe').contentWindow.postMessage('{"event": "command", "func": "pauseVideo", "args": ""}', '*');
+        el.querySelector('iframe')
+          .contentWindow.postMessage('{"event": "command", "func": "pauseVideo", "args": ""}', '*');
       });
     }
   }
@@ -205,3 +200,5 @@ export class Modals {
     this._enableScrolling = true;
   }
 }
+
+export default Modals;

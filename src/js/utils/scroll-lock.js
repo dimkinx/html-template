@@ -1,8 +1,6 @@
-/* eslint-disable class-methods-use-this */
-/* eslint-disable no-underscore-dangle */
-import { iosChecker } from './ios-checker';
+import iosChecker from './ios-checker';
 
-export default class ScrollLock {
+class ScrollLock {
   constructor() {
     this._iosChecker = iosChecker;
     this._lockClass = this._iosChecker() ? 'scroll-lock-ios' : 'scroll-lock';
@@ -23,7 +21,8 @@ export default class ScrollLock {
   }
 
   disableScrolling() {
-    this._scrollTop = document.body.dataset.scroll = document.body.dataset.scroll ? document.body.dataset.scroll : this._getBodyScrollTop();
+    this._scrollTop = document.body.dataset.scroll ? document.body.dataset.scroll : this._getBodyScrollTop();
+
     if (this._getScrollbarWidth()) {
       document.body.style.paddingRight = `${this._getScrollbarWidth()}px`;
       this._fixedBlockElements.forEach((block) => {
@@ -48,3 +47,5 @@ export default class ScrollLock {
 }
 
 window.scrollLock = new ScrollLock();
+
+export default ScrollLock;

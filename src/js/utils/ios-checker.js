@@ -1,4 +1,4 @@
-export const iosChecker = () => [
+const iosChecker = () => [
   'iPad Simulator',
   'iPhone Simulator',
   'iPod Simulator',
@@ -8,3 +8,5 @@ export const iosChecker = () => [
 ].includes(navigator.platform)
   // iPad on iOS 13 detection
   || (navigator.userAgent.includes('Mac') && 'ontouchend' in document);
+
+export default iosChecker;

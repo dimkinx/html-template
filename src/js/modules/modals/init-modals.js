@@ -3,7 +3,7 @@ import {Modals} from './modals';
 let modals;
 
 const settings = {
-  'default': {
+  default: {
     preventDefault: true,
     stopPlay: true,
     lockFocus: true,

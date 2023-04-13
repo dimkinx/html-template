@@ -9,10 +9,10 @@ const SELECTORS = [
   'object',
   'embed',
   '[contenteditable]',
-  '[tabindex]:not([tabindex^="-"])'
+  '[tabindex]:not([tabindex^="-"])',
 ];
 
-export class FocusLock {
+class FocusLock {
   constructor() {
     this._lockedSelector = null;
     this._focusableElements = null;
@@ -23,7 +23,7 @@ export class FocusLock {
   }
 
   _documentKeydownHandler(evt) {
-    const activeElement = document.activeElement;
+    const {activeElement} = document;
     if (evt.key === 'Tab') {
       if (!this._focusableElements.length) {
         evt.preventDefault();
@@ -41,7 +41,11 @@ export class FocusLock {
         return;
       }
     }
-    if (evt.key === 'Tab' && !evt.shiftKey && activeElement === this._focusableElements[this._focusableElements.length - 1]) {
+    if (
+      evt.key === 'Tab'
+      && !evt.shiftKey
+      && activeElement === this._focusableElements[this._focusableElements.length - 1]
+    ) {
       evt.preventDefault();
       this._focusableElements[0].focus();
     }
@@ -82,3 +86,5 @@ export class FocusLock {
 }
 
 window.focusLock = new FocusLock();
+
+export default FocusLock;
