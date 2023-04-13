@@ -4,9 +4,12 @@ extends:
 
 plugins:
   - stylelint-scss
-  - stylelint-order
+  - stylelint-prettier
 
 rules:
+  # Enable prettier
+  prettier/prettier: true
+
   # Disallow !important within declarations
   declaration-no-important: true
 
@@ -24,8 +27,9 @@ rules:
   # Usually if you're nesting past 3 levels deep there's a problem
   max-nesting-depth:
     - 2
-    - ignore: blockless-at-rules
-    - ignoreAtRules:
+    - ignore:
+        - blockless-at-rules
+      ignoreAtRules:
         - media
 
   # Specify percentage or number notation for alpha-values
