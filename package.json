@@ -1,18 +1,5 @@
 {
-  "name": "html-template",
-  "version": "1.0.0",
-  "description": "Template to automate routine tasks in web development",
-  "keywords": [
-    "html",
-    "css",
-    "js",
-    "gulp",
-    "editorconfig",
-    "stylelint",
-    "eslint"
-  ],
-  "author": "Dmitry Ostroukhov",
-  "license": "WTFPD",
+  "private": true,
   "type": "module",
   "engines": {
     "node": ">=18"
@@ -25,30 +12,19 @@
   ],
   "scripts": {
     "editorconfig": "editorconfig-checker -exclude 'node_modules|dist'",
-    "css": "stylelint 'build/css/**/*.css'",
-    "css:fix": "stylelint 'build/css/**/*.css' --fix",
-    "scss": "stylelint '**/*{.css,.scss}'",
-    "scss:fix": "stylelint '**/*{.css,.scss}' --fix"
+    "scss": "stylelint 'src/sass/**/*.scss'",
+    "js": "eslint 'src/js/**/*.js'"
   },
   "devDependencies": {
-    "autoprefixer": "10.4.14",
-    "browser-sync": "2.29.1",
-    "del": "7.0.0",
     "editorconfig-checker": "5.0.1",
     "eslint": "8.38.0",
-    "gulp": "4.0.2",
-    "gulp-csso": "4.0.1",
-    "gulp-group-css-media-queries": "1.2.2",
-    "gulp-postcss": "9.0.1",
-    "gulp-rename": "2.0.0",
-    "gulp-sass": "5.1.0",
-    "postcss": "8.4.21",
-    "sass": "1.61.0",
-    "stylelint": "15.4.0",
-    "stylelint-config-recommended": "11.0.0",
-    "stylelint-config-recommended-scss": "9.0.1",
+    "eslint-config-airbnb-base": "15.0.0",
+    "prettier": "2.8.7",
+    "stylelint": "^15.4.0",
+    "stylelint-config-clean-order": "^5.0.1",
+    "stylelint-config-standard-scss": "^8.0.0",
     "stylelint-order": "6.0.3",
-    "stylelint-scss": "4.6.0",
-    "vnu-jar": "22.9.29"
+    "stylelint-prettier": "^3.0.0",
+    "stylelint-scss": "4.6.0"
   }
 }
