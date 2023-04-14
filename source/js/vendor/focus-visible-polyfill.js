@@ -6,11 +6,11 @@
  * @see https://github.com/WICG/focus-visible
  */
 function applyFocusVisiblePolyfill(scope) {
-  var hadKeyboardEvent = true;
-  var hadFocusVisibleRecently = false;
-  var hadFocusVisibleRecentlyTimeout = null;
+  let hadKeyboardEvent = true;
+  let hadFocusVisibleRecently = false;
+  let hadFocusVisibleRecentlyTimeout = null;
 
-  var inputTypesAllowlist = {
+  const inputTypesAllowlist = {
     text: true,
     search: true,
     url: true,
@@ -33,12 +33,12 @@ function applyFocusVisiblePolyfill(scope) {
    */
   function isValidFocusTarget(el) {
     if (
-      el &&
-      el !== document &&
-      el.nodeName !== 'HTML' &&
-      el.nodeName !== 'BODY' &&
-      'classList' in el &&
-      'contains' in el.classList
+      el
+      && el !== document
+      && el.nodeName !== 'HTML'
+      && el.nodeName !== 'BODY'
+      && 'classList' in el
+      && 'contains' in el.classList
     ) {
       return true;
     }
@@ -53,8 +53,8 @@ function applyFocusVisiblePolyfill(scope) {
    * @return {boolean}
    */
   function focusTriggersKeyboardModality(el) {
-    var type = el.type;
-    var tagName = el.tagName;
+    const {type} = el;
+    const {tagName} = el;
 
     if (tagName === 'INPUT' && inputTypesAllowlist[type] && !el.readOnly) {
       return true;
@@ -163,7 +163,7 @@ function applyFocusVisiblePolyfill(scope) {
       // regular focus change.
       hadFocusVisibleRecently = true;
       window.clearTimeout(hadFocusVisibleRecentlyTimeout);
-      hadFocusVisibleRecentlyTimeout = window.setTimeout(function () {
+      hadFocusVisibleRecentlyTimeout = window.setTimeout(() => {
         hadFocusVisibleRecently = false;
       }, 100);
       removeFocusVisibleClass(e.target);
@@ -281,7 +281,7 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') {
 
   // Notify interested libraries of the polyfill's presence, in case the
   // polyfill was loaded lazily:
-  var event;
+  let event;
 
   try {
     event = new CustomEvent('focus-visible-polyfill-ready');
