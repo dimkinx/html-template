@@ -5,8 +5,6 @@ env:
 extends:
   - airbnb-base
 
-parser: "@babel/eslint-parser"
-
 parserOptions:
   requireConfigFile: false
   ecmaVersion: latest
@@ -26,3 +24,7 @@ rules:
   max-len:
     - error
     - 120
+  import/extensions:
+    - error
+    - ignorePackages
+    - js: never
