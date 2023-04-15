@@ -1,19 +1,23 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import gulp from 'gulp';
 import fileinclude from 'gulp-file-include';
+import htmlmin from 'gulp-htmlmin';
 import htmlbeautify from 'gulp-html-beautify';
-import path from '../config/path.mjs';
+import plumber from 'gulp-plumber';
+import config from '../config.mjs';
 
 const compileHtml = () => gulp
-  .src(path.source.html)
+  .src(config.path.source.html)
+  .pipe(plumber())
   .pipe(
     fileinclude({
       prefix: '@@',
       basepath: '@root',
-      context: {
-        // глобальные переменные для include
-        test: 'text',
-      },
+    }),
+  )
+  .pipe(
+    htmlmin({
+      removeComments: true,
     }),
   )
   .pipe(
@@ -24,6 +28,6 @@ const compileHtml = () => gulp
       wrap_attributes: 'auto',
     }),
   )
-  .pipe(gulp.dest('build'));
+  .pipe(gulp.dest(config.path.build.html));
 
 export default compileHtml;
