@@ -16,12 +16,16 @@
     "js": "eslint '**/*{.js,.mjs}'"
   },
   "devDependencies": {
+    "browser-sync": "^2.29.1",
+    "del": "^7.0.0",
     "editorconfig-checker": "5.0.1",
     "eslint": "8.38.0",
     "eslint-config-airbnb-base": "15.0.0",
     "gulp": "^4.0.2",
     "gulp-file-include": "^2.3.0",
     "gulp-html-beautify": "^1.0.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-plumber": "^1.2.1",
     "prettier": "2.8.7",
     "stylelint": "^15.4.0",
     "stylelint-config-clean-order": "^5.0.1",
