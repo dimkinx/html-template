@@ -11,12 +11,15 @@ const config = {
     sourceFolder,
     build: {
       html: `${buildFolder}/`,
+      css: `${buildFolder}/css/`,
     },
     source: {
       html: `${sourceFolder}/html/*.html`,
+      scss: `${sourceFolder}/scss/style.scss`,
     },
     watch: {
       html: `${sourceFolder}/html/**/*.html`,
+      scss: `${sourceFolder}/scss/**/*.scss`,
     },
     clean: buildFolder,
   },

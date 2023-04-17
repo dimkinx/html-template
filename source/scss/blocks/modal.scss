@@ -15,8 +15,7 @@
   opacity: 0;
   background-color: rgba($color-default-black, 0.8);
 
-  transition: opacity $trans-modal,
-    transform $trans-modal,
+  transition: opacity $trans-modal, transform $trans-modal,
     visibility $trans-modal;
 
   -webkit-overflow-scrolling: touch;
@@ -27,7 +26,7 @@
   }
 
   &__wrapper {
-    @include vp-767 {
+    @include vp-768 {
       padding: 60px 16px;
     }
 
@@ -55,7 +54,7 @@
   }
 
   &__content {
-    @include vp-767 {
+    @include vp-768 {
       width: 100%;
       padding: 20px;
     }
