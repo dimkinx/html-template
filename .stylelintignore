@@ -3,3 +3,4 @@
 *.md
 *.svg
 /node_modules
+/source/scss/vendor
