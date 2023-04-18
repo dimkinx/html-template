@@ -23,7 +23,7 @@ const compileStyles = () => gulp
   .pipe(gulp.dest(config.path.build.css))
   .pipe(csso())
   .pipe(rename('style.min.css'))
-  .pipe(gulp.dest(config.path.build.css), {sourcemaps: '.'});
+  .pipe(gulp.dest(config.path.build.css, {sourcemaps: '.'}));
 
 const compileMinStyles = () => gulp
   .src(config.path.source.scss)
