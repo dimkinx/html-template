@@ -2,6 +2,6 @@
 import {deleteAsync} from 'del';
 import config from '../config.mjs';
 
-const clean = () => deleteAsync(config.path.clean);
+const clearBuild = () => deleteAsync(config.path.buildFolder);
 
-export default clean;
+export default clearBuild;
