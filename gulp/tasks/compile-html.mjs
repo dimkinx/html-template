@@ -15,19 +15,17 @@ const compileHtml = () => gulp
       basepath: '@root',
     }),
   )
-  .pipe(
-    htmlmin({
-      removeComments: true,
-    }),
-  )
+  .pipe(htmlmin({removeComments: true}))
   .pipe(
     htmlbeautify({
       indent_size: 2,
+      indent_inner_html: true,
       preserve_newlines: true,
       max_preserve_newlines: 0,
       wrap_attributes: 'auto',
     }),
   )
+  .pipe(htmlmin({collapseWhitespace: config.isProd}))
   .pipe(gulp.dest(config.path.build.html));
 
 export default compileHtml;
