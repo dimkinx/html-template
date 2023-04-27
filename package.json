@@ -2,7 +2,7 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=18"
+    "node": "18"
   },
   "browserslist": [
     "last 2 versions",
@@ -11,14 +11,25 @@
     "not dead"
   ],
   "scripts": {
-    "editorconfig": "editorconfig-checker -exclude 'node_modules|dist'",
-    "scss": "stylelint 'source/sass/**/*.scss'",
-    "js": "eslint '**/*{.js,.mjs}'"
+    "editorconfig": "editorconfig-checker",
+    "stylelint": "stylelint '**/*{.css,.scss}'",
+    "eslint": "eslint '**/*{.js,.mjs}'",
+    "test": "npm run editorconfig & npm run stylelint & npm run eslint",
+    "build:dev": "gulp build",
+    "build:prod": "gulp build --production",
+    "start:dev": "gulp start",
+    "start:prod": "gulp start --production"
   },
   "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
     "autoprefixer": "^10.4.14",
+    "babel-loader": "^9.1.2",
     "browser-sync": "^2.29.1",
+    "circular-dependency-plugin": "^5.2.2",
+    "clean-webpack-plugin": "^4.0.0",
     "del": "^7.0.0",
+    "duplicate-package-checker-webpack-plugin": "^3.0.0",
     "editorconfig-checker": "5.0.1",
     "eslint": "8.38.0",
     "eslint-config-airbnb-base": "15.0.0",
@@ -28,6 +39,7 @@
     "gulp-group-css-media-queries": "^1.2.2",
     "gulp-html-beautify": "^1.0.1",
     "gulp-htmlmin": "^5.0.1",
+    "gulp-if": "^3.0.0",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^9.0.1",
     "gulp-rename": "^2.0.0",
@@ -39,6 +51,9 @@
     "stylelint-config-standard-scss": "^8.0.0",
     "stylelint-order": "6.0.3",
     "stylelint-prettier": "^3.0.0",
-    "stylelint-scss": "4.6.0"
+    "stylelint-scss": "4.6.0",
+    "terser-webpack-plugin": "^5.3.7",
+    "webpack": "^5.80.0",
+    "webpack-stream": "^7.0.0"
   }
 }
