@@ -5,8 +5,9 @@ import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
 import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
-import csso from 'gulp-csso';
 import gcmq from 'gulp-group-css-media-queries';
+import stripCssComments from 'gulp-strip-css-comments';
+import csso from 'gulp-csso';
 import rename from 'gulp-rename';
 import config from '../config.mjs';
 
@@ -22,6 +23,7 @@ const compileStyles = () => gulp
       })]),
   )
   .pipe(gulpif(config.isProd, gcmq()))
+  .pipe(gulpif(config.isProd, stripCssComments({preserve: false})))
   .pipe(gulpif(config.isProd, csso()))
   .pipe(rename('style.min.css'))
   .pipe(gulp.dest(config.path.build.css, {sourcemaps: '.'}));
