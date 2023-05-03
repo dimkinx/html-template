@@ -17,4 +17,6 @@ const convertTtfToWoff2 = () => gulp
   .pipe(ttf2woff2())
   .pipe(gulp.dest(config.path.source.fonts));
 
-export {convertTtfToWoff, convertTtfToWoff2};
+const convertFonts = gulp.parallel(convertTtfToWoff, convertTtfToWoff2);
+
+export default convertFonts;
