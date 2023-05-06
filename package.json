@@ -11,15 +11,15 @@
     "not dead"
   ],
   "scripts": {
+    "start": "gulp start",
+    "start:prod": "gulp start --production",
+    "build": "gulp build",
+    "build:prod": "gulp build --production",
     "editorconfig": "editorconfig-checker",
     "stylelint": "stylelint '**/*{.css,.scss}'",
     "eslint": "eslint '**/*{.js,.mjs}'",
     "test": "npm run editorconfig & npm run stylelint & npm run eslint",
-    "fonts": "gulp convertFonts",
-    "build:dev": "gulp build",
-    "build:prod": "gulp build --production",
-    "start:dev": "gulp start",
-    "start:prod": "gulp start --production"
+    "fonts": "gulp convertFonts"
   },
   "devDependencies": {
     "@babel/core": "7.21.4",
